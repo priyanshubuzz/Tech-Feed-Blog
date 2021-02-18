@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Tech Feed</title>
+        <link rel="stylesheet" type="text/css" href="../static/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="logo">
+                <a href="/"><img src="../static/Tech-Feed-Logo.png" height="100px" alt=""></a>
+            </div>
+
+            <div class="nav">
+                <ul>
+                    <a href="/"><li>Home</li></a>
+                </ul>
+            </div>
+        </header>
+        
+        <br><h2 id="title">Articles</h2>
+
+        {% for i in data %}
+
+        <div class="content">
+            <img class=thumbnail src={{i[2]}} width=140px height=90px alt="Thumbnai">
+            <p class="article">{{i[1]}}</p>
+        </div>
+
+        {% endfor %}
+        
+        <div class="pagination">
+            {% if page_id-1 != 0 and page_id-1 != 1 %}
+                <a href="/page={{page_id-1}}"><</a>
+            {% else %}
+                <a href="/"><</a>
+            {% endif %}
+            <a href="/page={{page_id}}" class="active">{{page_id}}</a>
+            <a href="/page={{page_id+1}}">{{page_id+1}}</a>
+            <a href="/page={{page_id+2}}">{{page_id+2}}</a> 
+            <a href="/page={{page_id+3}}">{{page_id+3}}</a>
+            <a href="/page={{page_id+4}}">{{page_id+4}}</a>
+            <a href="/page={{page_id+1}}">></a>
+        </div>
+
+        <footer>
+            <p>&copy;2019-20 Tech Feed Media</p>
+        </footer>
+    </body>
+</html>
